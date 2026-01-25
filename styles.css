@@ -600,6 +600,12 @@ p:last-child {
     margin: 0;
 }
 
+.footer-version {
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+    margin: var(--spacing-xs) 0 0 0;
+}
+
 /* ========================================
    Responsive Design
    ======================================== */

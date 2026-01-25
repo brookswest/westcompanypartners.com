@@ -11,6 +11,11 @@
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.nav-link');
     const yearSpan = document.getElementById('year');
+    const versionSpan = document.getElementById('version');
+
+    // GitHub repo info
+    const GITHUB_USER = 'brookswest';
+    const GITHUB_REPO = 'westcompanypartners.com';
 
     /**
      * Set current year in footer
@@ -18,6 +23,35 @@
     function setCurrentYear() {
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
+        }
+    }
+
+    /**
+     * Fetch and display version info from GitHub
+     */
+    async function fetchVersionInfo() {
+        if (!versionSpan) return;
+
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/commits/master`
+            );
+
+            if (!response.ok) return;
+
+            const data = await response.json();
+            const commitDate = new Date(data.commit.committer.date);
+            const shortHash = data.sha.substring(0, 7);
+
+            const formattedDate = commitDate.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+
+            versionSpan.textContent = `${formattedDate} - ${shortHash}`;
+        } catch (error) {
+            // Silently fail - version info is non-critical
         }
     }
 
@@ -77,6 +111,9 @@
     function init() {
         // Set current year
         setCurrentYear();
+
+        // Fetch version info
+        fetchVersionInfo();
 
         // Mobile menu toggle
         if (mobileMenuBtn) {
