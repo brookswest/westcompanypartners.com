@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dallas 2026</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init({ publicKey: 'SJ0nfdyDJRGMHmLyb' });</script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -884,11 +886,27 @@
 
     submitBtn.addEventListener('click', triggerReveal);
 
+    // ─── EMAILJS ALERT ───
+    function sendFailAlert(name) {
+      const now = new Date();
+      const timestamp = now.toLocaleString('en-US', {
+        weekday: 'short', month: 'short', day: 'numeric',
+        year: 'numeric', hour: 'numeric', minute: '2-digit',
+        timeZoneName: 'short'
+      });
+      emailjs.send('service_d76mm29', 'template_9054icp', {
+        intruder_name: name,
+        timestamp: timestamp,
+        page_url: window.location.href
+      }).catch(() => {}); // silent fail — don't break the experience
+    }
+
     // ─── REVEAL ───
     function triggerReveal() {
       const name = nameInput.value.trim();
       if (!name) return;
 
+      sendFailAlert(name);
       closeModal();
 
       const revealScreen = document.getElementById('reveal-screen');
