@@ -1382,7 +1382,7 @@
 
     function isValidName(name) {
       const n = name.toLowerCase().trim();
-      return ALLOWED_NAMES.some(a => n === a || n.startsWith(a));
+      return ALLOWED_NAMES.includes(n);
     }
 
     function isValidCode(code) {
