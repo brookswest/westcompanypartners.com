@@ -1,226 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="West Company Partners is an entrepreneurship through acquisition (ETA) firm seeking to acquire and grow a well-established small business.">
-    <meta name="keywords" content="ETA, entrepreneurship through acquisition, small business acquisition, buy a business, business buyer">
-    <meta name="author" content="West Company Partners">
-    <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West Company Partners | Acquiring &amp; Growing Small Businesses</title>
+<meta name="description" content="West Company Partners is an entrepreneurship through acquisition (ETA) firm seeking to acquire and grow a well-established small business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F0E7D3;
+    --paper-deep:#E7DCC2;
+    --ink:#1C1719;
+    --ink-soft:#4A4340;
+    --orange:#E07B27;
+    --teal:#17808F;
+    --magenta:#A61E5C;
+    --plum:#33182C;
+    --hairline:rgba(28,23,25,.18);
+    --hairline-teal:rgba(23,128,143,.30);
+    --display:'Archivo',sans-serif;
+    --body:'Instrument Sans',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--orange);color:var(--paper)}
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="West Company Partners | Acquiring & Growing Small Businesses">
-    <meta property="og:description" content="An entrepreneurship through acquisition firm seeking to acquire and grow a well-established small business.">
-    <meta property="og:url" content="https://westcompanypartners.com">
+  /* faint vertical construction line, echoing the drafting lines in the artwork */
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;bottom:0;
+    left:max(28px, calc((100vw - 1120px)/2 - 40px));
+    width:1px;
+    background:var(--hairline-teal);
+    pointer-events:none;
+    z-index:0;
+  }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="alternate icon" type="image/png" href="favicon.png">
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  /* ---------- Nav ---------- */
+  header{
+    border-bottom:1px solid var(--hairline);
+    position:sticky;top:0;z-index:50;
+    background:rgba(240,231,211,.92);
+    backdrop-filter:blur(8px);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .mark{
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;
+  }
+  .mark svg{display:block}
+  .mark-name{
+    font-family:var(--display);
+    font-weight:600;font-size:15px;letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+  nav ul{display:flex;gap:34px;list-style:none}
+  nav a{
+    text-decoration:none;
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:4px 0;
+    border-bottom:1px solid transparent;
+    transition:color .18s,border-color .18s;
+  }
+  nav a:hover{color:var(--ink);border-bottom-color:var(--orange)}
+  @media(max-width:760px){nav ul{display:none}}
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+  /* ---------- Hero ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+    gap:56px;
+    align-items:center;
+    padding:96px 0 104px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:9px;height:9px;background:var(--orange);border-radius:50%;flex:none}
+  h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(34px,4.6vw,56px);
+    line-height:1.08;
+    letter-spacing:-.018em;
+    max-width:15ch;
+  }
+  h1 em{font-style:normal;color:var(--orange)}
+  .hero p{
+    margin-top:24px;
+    max-width:46ch;
+    font-size:18px;
+    color:var(--ink-soft);
+  }
+  .cta-row{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-block;
+    font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.01em;
+    text-decoration:none;
+    background:var(--ink);color:var(--paper);
+    padding:15px 30px;
+    border:1px solid var(--ink);
+    transition:background .18s,color .18s;
+  }
+  .btn:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--hairline);
+  }
+  .btn-ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
 
-    <title>West Company Partners | Acquiring & Growing Small Businesses</title>
+  .hero-art{justify-self:end;width:100%;max-width:420px}
+  .hero-art svg{width:100%;height:auto;display:block}
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;padding:64px 0 72px;gap:44px}
+    .hero-art{max-width:300px;justify-self:start}
+  }
+
+  .fade{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
+  .fade.d1{animation-delay:.08s}.fade.d2{animation-delay:.16s}.fade.d3{animation-delay:.26s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- Sections ---------- */
+  section{padding:96px 0;border-bottom:1px solid var(--hairline)}
+  @media(max-width:760px){section{padding:64px 0}}
+  .sec-head{margin-bottom:56px;max-width:640px}
+  h2{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(26px,3vw,36px);
+    line-height:1.15;letter-spacing:-.014em;
+    margin-top:14px;
+  }
+  .lede{margin-top:18px;color:var(--ink-soft);font-size:17.5px}
+
+  /* Approach */
+  .approach-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;
+  }
+  @media(max-width:860px){.approach-grid{grid-template-columns:1fr;gap:40px}}
+  .approach-copy p+p{margin-top:18px}
+  .approach-copy{color:var(--ink-soft)}
+  .approach-copy strong{color:var(--ink);font-weight:600}
+
+  .values{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--hairline)}
+  .value{
+    display:grid;grid-template-columns:64px 1fr;gap:22px;
+    padding:26px 0;border-bottom:1px solid var(--hairline);
+    align-items:start;
+  }
+  .value h3{
+    font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.005em;
+  }
+  .value p{margin-top:6px;color:var(--ink-soft);font-size:16px}
+  .glyph{width:52px;height:52px;flex:none}
+  .glyph svg{width:100%;height:100%;display:block}
+
+  /* Criteria */
+  .criteria{background:var(--paper-deep)}
+  .cards{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    border:1px solid var(--hairline);
+    background:var(--paper);
+  }
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+  .card{
+    padding:38px 36px 42px;
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+  .card:nth-child(2n){border-right:none}
+  .card:nth-last-child(-n+2){border-bottom:none}
+  @media(max-width:760px){
+    .card{border-right:none}
+    .card:nth-last-child(2){border-bottom:1px solid var(--hairline)}
+  }
+  .card-tag{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .card-tag .chip{width:10px;height:10px;flex:none}
+  .card h3{
+    font-family:var(--display);font-weight:600;font-size:20px;
+    margin-top:14px;letter-spacing:-.008em;
+  }
+  .card ul{list-style:none;margin-top:18px}
+  .card li{
+    padding:9px 0 9px 22px;position:relative;
+    color:var(--ink-soft);font-size:16px;line-height:1.5;
+    border-bottom:1px dashed rgba(28,23,25,.12);
+  }
+  .card li:last-child{border-bottom:none}
+  .card li::before{
+    content:"";position:absolute;left:0;top:17px;
+    width:8px;height:1.5px;background:var(--orange);
+  }
+
+  /* Background */
+  .bg-grid{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+  @media(max-width:860px){.bg-grid{grid-template-columns:1fr;gap:40px}}
+  .bg-copy p{color:var(--ink-soft)}
+  .bg-copy p+p{margin-top:18px}
+  .bg-copy strong{color:var(--ink);font-weight:600}
+  .principals{border-top:2px solid var(--ink)}
+  .principal{padding:26px 0;border-bottom:1px solid var(--hairline)}
+  .principal .role{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);
+  }
+  .principal h3{font-family:var(--display);font-weight:600;font-size:19px;margin-top:8px}
+  .principal p{margin-top:8px;color:var(--ink-soft);font-size:16px}
+
+  /* Contact */
+  .contact{
+    background:var(--plum);color:var(--paper);
+    border-bottom:none;
+    position:relative;overflow:hidden;
+  }
+  .contact .eyebrow{color:var(--paper);opacity:.85}
+  .contact h2{color:var(--paper)}
+  .contact .lede{color:rgba(240,231,211,.75)}
+  .contact-inner{position:relative;z-index:1;max-width:620px}
+  .email{
+    display:inline-block;margin-top:34px;
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(20px,2.6vw,28px);letter-spacing:-.01em;
+    color:var(--orange);text-decoration:none;
+    border-bottom:2px solid var(--orange);
+    padding-bottom:4px;
+    transition:color .18s,border-color .18s;
+  }
+  .email:hover{color:var(--paper);border-color:var(--paper)}
+  .contact-note{
+    margin-top:26px;font-size:15px;color:rgba(240,231,211,.6);max-width:52ch;
+  }
+  .contact-geo{
+    position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+    width:380px;opacity:.9;pointer-events:none;
+  }
+  @media(max-width:900px){.contact-geo{display:none}}
+
+  footer{
+    background:var(--plum);color:rgba(240,231,211,.55);
+    border-top:1px solid rgba(240,231,211,.15);
+  }
+  .foot{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 0;flex-wrap:wrap;gap:12px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <a href="#" class="logo" aria-label="West Company Partners Home">
-                <span class="logo-icon">W</span>
-                <span class="logo-text">West Company Partners</span>
-            </a>
-            <nav class="nav" id="nav" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#criteria" class="nav-link">Investment Criteria</a></li>
-                    <li><a href="#background" class="nav-link">Background</a></li>
-                    <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top" aria-label="West Company Partners home">
+      <!-- geometric W mark: two circles + connecting stroke, echoing the wheel motif -->
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <circle cx="10" cy="22" r="8" fill="#E07B27"/>
+        <circle cx="24" cy="12" r="8" fill="none" stroke="#17808F" stroke-width="2"/>
+        <line x1="10" y1="22" x2="24" y2="12" stroke="#1C1719" stroke-width="2"/>
+        <circle cx="24" cy="12" r="2" fill="#1C1719"/>
+      </svg>
+      <span class="mark-name">West Company Partners</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">Approach</a></li>
+        <li><a href="#criteria">Criteria</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow fade">Entrepreneurship Through Acquisition</p>
+        <h1 class="fade d1">Partnering with business owners for <em>long-term</em> success.</h1>
+        <p class="fade d2">We're seeking to acquire and steward a well-established small business — preserving its legacy while driving sustainable growth.</p>
+        <div class="cta-row fade d3">
+          <a class="btn" href="#contact">Start a conversation</a>
+          <a class="btn btn-ghost" href="#criteria">Our criteria</a>
         </div>
-    </header>
+      </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Partnering with Business Owners for Long-Term Success</h1>
-                    <p class="hero-subtitle">We're seeking to acquire and steward a well-established small business, preserving its legacy while driving sustainable growth.</p>
-                    <a href="#contact" class="btn btn--primary">Start a Conversation</a>
-                </div>
-            </div>
-        </section>
+      <!-- Signature composition: two wheels joined by a diagonal — transition, forward motion -->
+      <div class="hero-art fade d2" aria-hidden="true">
+        <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- construction lines -->
+          <line x1="0" y1="118" x2="420" y2="118" stroke="rgba(23,128,143,.35)" stroke-width="1"/>
+          <line x1="298" y1="0" x2="298" y2="420" stroke="rgba(166,30,92,.3)" stroke-width="1"/>
+          <line x1="60" y1="330" x2="360" y2="90" stroke="#1C1719" stroke-width="1.5"/>
+          <!-- rear wheel: solid orange with quarter cut -->
+          <circle cx="120" cy="300" r="96" fill="#E07B27"/>
+          <path d="M120 300 L120 204 A96 96 0 0 1 216 300 Z" fill="#A61E5C"/>
+          <circle cx="120" cy="300" r="96" stroke="#1C1719" stroke-width="1.5"/>
+          <circle cx="120" cy="300" r="7" fill="#1C1719"/>
+          <!-- front wheel: teal ring -->
+          <circle cx="298" cy="118" r="78" fill="#17808F"/>
+          <circle cx="298" cy="118" r="52" fill="#F0E7D3"/>
+          <circle cx="298" cy="118" r="78" stroke="#1C1719" stroke-width="1.5"/>
+          <circle cx="298" cy="118" r="7" fill="#1C1719"/>
+          <!-- small counterweight square -->
+          <rect x="330" y="330" width="34" height="34" fill="#A61E5C"/>
+          <!-- arc trace -->
+          <path d="M40 80 A 210 210 0 0 1 250 380" stroke="rgba(28,23,25,.35)" stroke-width="1" stroke-dasharray="1 6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
 
-        <!-- About Section -->
-        <section class="section section--light" id="about">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Our Approach</h2>
-                    <p class="section-subtitle">Entrepreneurship Through Acquisition</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>West Company Partners is actively searching to acquire a profitable, well-established small business to own and operate for the long term. Unlike private equity firms focused on quick returns, we're seeking a single business to dedicate ourselves to completely.</p>
-                        <p>Our approach, known as Entrepreneurship Through Acquisition (ETA), combines the energy and commitment of hands-on ownership with respect for what's already working. We believe the best businesses are built on strong foundations laid by their current owners.</p>
-                        <p>We're not looking to flip a business or make dramatic changes. We want to learn from the current owner, understand what makes the business successful, and build upon that foundation with fresh perspective and renewed energy.</p>
-                    </div>
-                    <div class="about-values">
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <h3 class="value-title">Long-Term Commitment</h3>
-                            <p class="value-description">We're not looking for a quick exit. We want to own and operate for decades.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                            </div>
-                            <h3 class="value-title">People First</h3>
-                            <p class="value-description">Employees and customers are the heart of any great business.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                                </svg>
-                            </div>
-                            <h3 class="value-title">Sustainable Growth</h3>
-                            <p class="value-description">Building value steadily through operational excellence.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Criteria Section -->
-        <section class="section section--white" id="criteria">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">What We're Looking For</h2>
-                    <p class="section-subtitle">Our Investment Criteria</p>
-                </div>
-                <div class="criteria-grid">
-                    <div class="criteria-card">
-                        <h3 class="criteria-title">Business Profile</h3>
-                        <ul class="criteria-list">
-                            <li>Established business with 10+ years of operating history</li>
-                            <li>Strong reputation in its market or community</li>
-                            <li>Loyal customer base with recurring revenue characteristics</li>
-                            <li>Defensible market position or competitive advantages</li>
-                        </ul>
-                    </div>
-                    <div class="criteria-card">
-                        <h3 class="criteria-title">Financial Characteristics</h3>
-                        <ul class="criteria-list">
-                            <li>Annual revenue between $750k and $3M</li>
-                            <li>Consistent profitability with healthy margins</li>
-                            <li>Clean financial records and stable cash flows</li>
-                        </ul>
-                    </div>
-                    <div class="criteria-card">
-                        <h3 class="criteria-title">Industries of Interest</h3>
-                        <ul class="criteria-list">
-                            <li>Business services (B2B)</li>
-                            <li>Light manufacturing and distribution</li>
-                            <li>Specialty trade contractors</li>
-                            <li>Healthcare services</li>
-                            <li>Other niche service businesses</li>
-                        </ul>
-                    </div>
-                    <div class="criteria-card">
-                        <h3 class="criteria-title">Ideal Situation</h3>
-                        <ul class="criteria-list">
-                            <li>Owner seeking retirement or new chapter</li>
-                            <li>Willingness to support transition period</li>
-                            <li>Strong management team or key employees in place</li>
-                        
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Background Section -->
-        <section class="section section--dark" id="background">
-            <div class="container">
-                <div class="section-header section-header--light">
-                    <h2 class="section-title">Background</h2>
-                    <p class="section-subtitle">Why Work With Us</p>
-                </div>
-                <div class="background-content">
-                    <div class="background-text">
-                        <p>We bring a combination of professional experience and personal commitment that makes us well-suited to acquire and operate a small business. Our background includes [placeholder: describe relevant professional experience, education, and skills].</p>
-                        <p>Prior to pursuing acquisition entrepreneurship, we developed expertise in [placeholder: relevant industry experience, functional expertise, or leadership roles]. This experience has prepared us to step into an ownership role and contribute meaningfully from day one.</p>
-                        <p>We're backed by a network of experienced advisors, including successful business owners, M&A professionals, and industry experts who provide guidance throughout the acquisition process and beyond. Our financing approach is flexible and designed to meet the needs of sellers who care about their company's future.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section section--white" id="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p class="section-subtitle">Start a Confidential Conversation</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-text">
-                        <p>Whether you're a business owner considering your options, a broker with a relevant opportunity, or an advisor to someone who might benefit from a conversation, we'd welcome the chance to connect.</p>
-                        <p>All inquiries are treated with complete confidentiality. There's no pressure and no obligation—just a straightforward conversation about whether there might be a fit.</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-method">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <div class="contact-info">
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:brooks@westcompanypartners.com" class="contact-value">brooks@westcompanypartners.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-icon logo-icon--small">W</span>
-                    <span class="footer-name">West Company Partners</span>
-                </div>
-                <p class="footer-copy">&copy; <span id="year"></span> West Company Partners. All rights reserved.</p>
-                <p class="footer-version" id="version"></p>
-            </div>
+  <!-- ================= APPROACH ================= -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our Approach</p>
+        <h2>One business, owned and operated for the long term.</h2>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-copy">
+          <p>West Company Partners is actively searching to acquire a profitable, well-established small business to own and operate for the long term. <strong>Unlike private equity firms focused on quick returns, we're seeking a single business to dedicate ourselves to completely.</strong></p>
+          <p>Our approach — entrepreneurship through acquisition — combines the energy and commitment of hands-on ownership with respect for what's already working. The best businesses are built on strong foundations laid by their current owners.</p>
+          <p>We're not looking to flip a business or make dramatic changes. We want to learn from the current owner, understand what makes the business successful, and build on that foundation with fresh perspective and renewed energy.</p>
         </div>
-    </footer>
+        <div class="values">
+          <div class="value">
+            <div class="glyph" aria-hidden="true">
+              <!-- continuity: concentric circles -->
+              <svg viewBox="0 0 52 52" fill="none">
+                <circle cx="26" cy="26" r="22" stroke="#E07B27" stroke-width="2.5"/>
+                <circle cx="26" cy="26" r="12" stroke="#1C1719" stroke-width="1.5"/>
+                <circle cx="26" cy="26" r="3.5" fill="#1C1719"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Long-term commitment</h3>
+              <p>We're not looking for a quick exit. We want to own and operate for decades.</p>
+            </div>
+          </div>
+          <div class="value">
+            <div class="glyph" aria-hidden="true">
+              <!-- people: two overlapping circles -->
+              <svg viewBox="0 0 52 52" fill="none">
+                <circle cx="20" cy="26" r="14" fill="#17808F"/>
+                <circle cx="33" cy="26" r="14" fill="none" stroke="#1C1719" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3>People first</h3>
+              <p>Employees and customers are the heart of any great business.</p>
+            </div>
+          </div>
+          <div class="value">
+            <div class="glyph" aria-hidden="true">
+              <!-- growth: ascending quarter arcs -->
+              <svg viewBox="0 0 52 52" fill="none">
+                <path d="M6 46 A 40 40 0 0 1 46 6" stroke="#A61E5C" stroke-width="2.5"/>
+                <path d="M6 46 A 26 26 0 0 1 32 20" stroke="#1C1719" stroke-width="1.5"/>
+                <rect x="4" y="44" width="5" height="5" fill="#1C1719"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Sustainable growth</h3>
+              <p>Building value steadily through operational excellence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- ================= CRITERIA ================= -->
+  <section id="criteria" class="criteria">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Investment Criteria</p>
+        <h2>What we're looking for.</h2>
+        <p class="lede">We evaluate opportunities on fit, not just financials. A strong candidate looks like this:</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="card-tag"><svg class="chip" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="#E07B27"/></svg>Profile</span>
+          <h3>Business profile</h3>
+          <ul>
+            <li>Established business with 10+ years of operating history</li>
+            <li>Strong reputation in its market or community</li>
+            <li>Loyal customer base with recurring revenue characteristics</li>
+            <li>Defensible market position or competitive advantages</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag"><svg class="chip" viewBox="0 0 10 10" aria-hidden="true"><rect width="10" height="10" fill="#17808F"/></svg>Financials</span>
+          <h3>Financial characteristics</h3>
+          <ul>
+            <li>Annual revenue between $750K and $3M</li>
+            <li>Consistent profitability with healthy margins</li>
+            <li>Clean financial records and stable cash flows</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag"><svg class="chip" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 10 L5 0 L10 10 Z" fill="#A61E5C"/></svg>Industries</span>
+          <h3>Industries of interest</h3>
+          <ul>
+            <li>Business services (B2B)</li>
+            <li>Light manufacturing and distribution</li>
+            <li>Specialty trade contractors</li>
+            <li>Healthcare services</li>
+            <li>Other niche service businesses</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag"><svg class="chip" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 0 H10 V10 A10 10 0 0 1 0 0 Z" fill="#1C1719"/></svg>Situation</span>
+          <h3>Ideal situation</h3>
+          <ul>
+            <li>Owner seeking retirement or a new chapter</li>
+            <li>Willingness to support a transition period</li>
+            <li>Strong management team or key employees in place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BACKGROUND ================= -->
+  <section id="background">
+    <div class="wrap">
+      <div class="bg-grid">
+        <div>
+          <p class="eyebrow">Background</p>
+          <h2>Why work with us.</h2>
+          <div class="bg-copy" style="margin-top:22px">
+            <p>We bring a combination of professional experience and personal commitment well suited to acquiring and operating a small business — <strong>complementary strengths across operations and finance.</strong></p>
+            <p>We're backed by a network of experienced advisors, including successful business owners, M&amp;A professionals, and industry experts who provide guidance throughout the acquisition process and beyond. Our financing approach is flexible and designed to meet the needs of sellers who care about their company's future.</p>
+          </div>
+        </div>
+        <div class="principals">
+          <div class="principal">
+            <span class="role">Operations &amp; Growth</span>
+            <h3>Brooks West</h3>
+            <p>A career leading marketing and revenue operations at the executive level — building teams, systems, and go-to-market engines that turn steady businesses into growing ones.</p>
+          </div>
+          <div class="principal">
+            <span class="role">Finance &amp; Banking</span>
+            <h3>Jess</h3>
+            <p>Vice president–level experience in banking and financial services, bringing disciplined financial management, lender relationships, and a rigorous approach to structuring transactions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <p class="eyebrow">Let's Connect</p>
+        <h2>Start a confidential conversation.</h2>
+        <p class="lede">Whether you're a business owner considering your options, a broker with a relevant opportunity, or an advisor to someone who might benefit from a conversation — we'd welcome the chance to connect.</p>
+        <a class="email" href="mailto:brooks@westcompanypartners.com">brooks@westcompanypartners.com</a>
+        <p class="contact-note">All inquiries are treated with complete confidentiality. No pressure, no obligation — just a straightforward conversation about whether there might be a fit.</p>
+      </div>
+    </div>
+    <svg class="contact-geo" viewBox="0 0 380 380" fill="none" aria-hidden="true">
+      <circle cx="230" cy="190" r="150" stroke="rgba(240,231,211,.25)" stroke-width="1"/>
+      <circle cx="230" cy="190" r="96" fill="#E07B27" opacity=".9"/>
+      <path d="M230 190 L230 94 A96 96 0 0 1 326 190 Z" fill="#17808F"/>
+      <circle cx="230" cy="190" r="6" fill="#F0E7D3"/>
+      <line x1="40" y1="340" x2="330" y2="90" stroke="rgba(240,231,211,.35)" stroke-width="1"/>
+    </svg>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 West Company Partners</span>
+    <span>Minnesota, USA</span>
+  </div>
+</footer>
+
 </body>
 </html>
